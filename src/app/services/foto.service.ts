@@ -10,11 +10,17 @@ const { Camera, Filesystem, Storage } = Plugins;
 export class FotoService {
 
   public dataFoto: Photo[] = [];
+  public detailFoto : string = "";
   private keyFoto: string = "foto";
   private platform: Platform;
 
   constructor(platform: Platform) {
     this.platform = platform;
+  }
+
+  public setDetailFoto(detailFoto)
+  {
+    this.detailFoto = detailFoto;
   }
 
   public async tambahFoto() {

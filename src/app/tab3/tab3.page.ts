@@ -47,6 +47,7 @@ export class Tab3Page {
   }
 
   AksesFoto(index) {
+    this.fotoService.setDetailFoto(this.urlImageStorage[index]);
     this.router.navigate(["/tabs/tab4/" + index]);
   }
 }
