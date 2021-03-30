@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Foto Cloudnya</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section *ngIf="index != -1">
+    <ion-img [src]="urlImageStorage[index]">
+      
+    </ion-img>
+  </section>
+</ion-content>
