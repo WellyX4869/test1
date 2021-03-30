@@ -30,7 +30,7 @@ export class Tab4Page implements OnInit {
       .then((res) => {
         res.items.forEach((itemRef) => {
           itemRef.getDownloadURL().then(url => {
-            this.urlImageStorage.push(url);
+            this.urlImageStorage.unshift(url);
           });
         });
       }).catch((error) => {

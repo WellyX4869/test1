@@ -36,7 +36,7 @@ export class Tab3Page {
             this.namaGambar.unshift(meta.name);
           });
           itemRef.getDownloadURL().then(url => {
-            this.urlImageStorage.push(url);
+            this.urlImageStorage.unshift(url);
           });
         });
       }).catch((error) => {
@@ -47,6 +47,6 @@ export class Tab3Page {
   }
 
   AksesFoto(index) {
-    this.router.navigate(["/tab4/" + index]);
+    this.router.navigate(["/tabs/tab4/" + index]);
   }
 }
