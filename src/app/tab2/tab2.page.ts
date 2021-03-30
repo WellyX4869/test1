@@ -14,6 +14,8 @@ export class Tab2Page {
     public fotoService: FotoService
   ) { }
 
+  indexFoto = -1;
+
   async ngOnInit() {
     this.fotoService.loadFoto();
   }
@@ -24,15 +26,24 @@ export class Tab2Page {
 
   urlImageStorage: string[] = [];
 
-  uploadFoto(index) {
-    
-    this.urlImageStorage = [];
-    const imgFilepath = `testImgStorage/${this.fotoService.dataFoto[index].filePath}`;
-    this.afStorage.upload(imgFilepath, this.fotoService.dataFoto[index].dataImage).then(() => {
-      this.afStorage.storage.ref().child(imgFilepath).getDownloadURL().then((url) => {
-        this.urlImageStorage.unshift(url)
+  uploadFoto() {
+    if(this.indexFoto > -1){
+      this.urlImageStorage = [];
+      const imgFilepath = `testImgStorage/${this.fotoService.dataFoto[this.indexFoto].filePath}`;
+      this.afStorage.upload(imgFilepath, this.fotoService.dataFoto[this.indexFoto].dataImage).then(() => {
+        this.afStorage.storage.ref().child(imgFilepath).getDownloadURL().then((url) => {
+          this.urlImageStorage.unshift(url)
+        });
       });
-    });
-    alert("Upload Successful!!");
+      alert("Upload Successful!!");
+    }
+    else{
+      alert("Foto belum dipilih");
+    }
+  }
+
+  UploadFotoIni(index)
+  {
+    this.indexFoto = index;
   }
 }

@@ -10,8 +10,8 @@
   <ion-grid>
     <ion-row>
       <ion-col size="4" class="ion-align-self-center" *ngFor="let isiFoto of fotoService.dataFoto; index as position; let i = index;">
-        <ion-img [src]="isiFoto.webviewPath"></ion-img>
-        <ion-button text="center" color="primary" shape="round" size="medium" (click)="uploadFoto(i)">UPLOAD INI</ion-button>
+        <ion-img [src]="isiFoto.webviewPath" (click)="UploadFotoIni(i)"></ion-img>
+        
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -20,5 +20,11 @@
     <ion-fab-button  color="success" (click)="TambahFoto()">
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
+    
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button color="primary" (click)="uploadFoto()">
+    <ion-icon name="cloud-upload-outline"></ion-icon>
+  </ion-fab-button>
   </ion-fab>
 </ion-content>
